@@ -59,7 +59,6 @@ router.post("/login", async (req, res) => {
         const userBatch = await UserBatch.findOne({ userId }).populate("batchTimesId").populate("userId")
 
 
-        console.log(userBatch);
 
         // if (batchDetails && userBatch) {
         //   const responsePayload = {
@@ -73,7 +72,8 @@ router.post("/login", async (req, res) => {
 
         res
           .status(200)
-          .json({ status: "Successfully Login", ...user._doc, accessToken,userBatch });
+          .json({ status: "Successfully Login", ...user._doc, accessToken, userBatch });
+          
         // }
 
       } catch (err) {

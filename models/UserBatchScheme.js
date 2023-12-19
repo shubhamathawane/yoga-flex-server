@@ -5,7 +5,7 @@ const userBatchSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
-    batchTimesId: {
+    batchId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Batch", 
     },

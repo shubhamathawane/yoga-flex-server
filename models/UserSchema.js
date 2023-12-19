@@ -18,15 +18,15 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  batch: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref:'Batch'
-  },
-  payment_status: {
-    type: Boolean,
-    default: false,
-    required:false
-  },
+  // batch: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref:'Batch'
+  // },
+  // payment_status: {
+  //   type: Boolean,
+  //   default: false,
+  //   required:false
+  // },
 });
 
 const User = mongoose.model("User", userSchema);

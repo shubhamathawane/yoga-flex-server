@@ -12,8 +12,10 @@ app.use(express.json());
 const port = process.env.PORT;
 const mongo_url = process.env.MONGO_URL;
 
-const authRoute = require("./routes/AuthRoute.js");
-const batchRoute = require("./routes/BatchRoute.js");
+const authRoute = require("./routes/Auth.js");
+const batchRoute = require("./routes/Batch.js");
+const paymentRoute = require('./routes/Payment');
+const userRoute = require('./routes/UpdatedUser');
 // mongoose connection
 
 mongoose
@@ -25,10 +27,13 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-// user authentication
+
+  // user authentication
+
 app.use("/api/auth", authRoute);
 app.use("/api/batch", batchRoute);
-
+app.use("/api/payment", paymentRoute)
+app.use("/api/user", userRoute)
 app.listen(port, (req, res) => {
   console.log(`Server is running on ${port}`);
 });
